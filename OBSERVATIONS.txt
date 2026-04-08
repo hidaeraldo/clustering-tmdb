@@ -1,0 +1,14 @@
+## Observations and comparison
+
+- K-Means with \(K=3\) roughly splits movies into low / mid / high budget-popularity tiers:
+  - Low: budget ≈ 12M, revenue ≈ 19M, popularity ≈ 9.5
+  - Mid: budget ≈ 43M, revenue ≈ 116M, popularity ≈ 31
+  - High: budget ≈ 135M, revenue ≈ 594M, popularity ≈ 98
+
+- DBSCAN produces 1 main dense cluster (4,736 movies) plus 65 points labeled as outliers/noise.
+
+- SSE (inertia) drops when K increases (e.g., \(K=2 \rightarrow 19{,}359\), \(K=3 \rightarrow 16{,}071\)), which is expected as the model gets more flexibility.
+
+- Silhouette score suggests separation is stronger at \(K=2\) (0.579) than at \(K=3\) (0.286).
+
+Conclusion: K-Means does a good job grouping the majority of movies into broad segments, while DBSCAN is more useful here as an outlier detector.
